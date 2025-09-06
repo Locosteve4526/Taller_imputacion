@@ -1400,43 +1400,6 @@ Nulos en &#39;gasto_mensual&#39; DESPUÉS de imputar: 0 (0.00%)
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;edad&quot;</span><span class="p">,</span> <span class="s2">&quot;ingresos&quot;</span><span class="p">,</span> <span class="s2">&quot;nivel_educativo&quot;</span><span class="p">,</span> <span class="s2">&quot;ciudad&quot;</span><span class="p">,</span> <span class="s2">&quot;segmento&quot;</span><span class="p">]],</span>
-                   <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gasto_mensual&quot;</span><span class="p">]</span>
-
-<span class="n">mask_train</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
-
-<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">mask_train</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">y</span><span class="p">[</span><span class="n">mask_train</span><span class="p">])</span>
-
-<span class="n">mask_pred</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">mask_pred</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-
-<span class="n">df_imputed</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask_pred</span><span class="p">,</span> <span class="s2">&quot;gasto_mensual&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
-
-
-<span class="n">nulos_antes</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gasto_mensual&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">pct_antes</span> <span class="o">=</span> <span class="p">(</span><span class="n">nulos_antes</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nulos en &#39;gasto_mensual&#39; ANTES de imputar: </span><span class="si">{</span><span class="n">nulos_antes</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">pct_antes</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
-
-
-<span class="n">nulos_despues</span> <span class="o">=</span> <span class="n">df_imputed</span><span class="p">[</span><span class="s2">&quot;gasto_mensual&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">pct_despues</span> <span class="o">=</span> <span class="p">(</span><span class="n">nulos_despues</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_imputed</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nulos en &#39;gasto_mensual&#39; DESPUÉS de imputar: </span><span class="si">{</span><span class="n">nulos_despues</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">pct_despues</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nulos en &#39;gasto_mensual&#39; ANTES de imputar: 250 (25.00%)
-Nulos en &#39;gasto_mensual&#39; DESPUÉS de imputar: 0 (0.00%)
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="visualizacion-de-los-resultados">
 <h3>Visualización de los resultados<a class="headerlink" href="#visualizacion-de-los-resultados" title="Link to this heading">#</a></h3>
