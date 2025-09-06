@@ -390,6 +390,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ingresos">ingresos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gasto-mensual">gasto mensual</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puntuacion-de-credito">puntuacion de credito</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segmento">Segmento</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-resumen">Tabla resumén</a></li>
@@ -1109,7 +1110,7 @@ memory usage: 93.9+ KB
 </section>
 <section id="nivel-educativo">
 <h3>nivel educativo<a class="headerlink" href="#nivel-educativo" title="Link to this heading">#</a></h3>
-<p>En este caso tenemos un 10% de valores faltantes y aun es posible imputar por moda sin mucho riesgo</p>
+<p>En este caso tenemos un 10% de valores faltantes y aun es posible imputar sin mucho riesgo, pero al clasificarse como MAR se propone usar One Hot encoder para resultados optimos</p>
 </section>
 <section id="edad">
 <h3>edad<a class="headerlink" href="#edad" title="Link to this heading">#</a></h3>
@@ -1121,7 +1122,7 @@ memory usage: 93.9+ KB
 </section>
 <section id="estado-civil">
 <h3>estado civil<a class="headerlink" href="#estado-civil" title="Link to this heading">#</a></h3>
-<p>Es la segunda variable con más datos faltantes, alcanzando un 35%, imputar en el caso de esta variable es muy riesgoso, aunque dependiendo del estudio que se decida hacer podria no afectaar tanto. Para este tipo de casos recomendaria no imputar pues es un dato sensible.</p>
+<p>Es la segunda variable con más datos faltantes, alcanzando un 35%, imputar en el caso de esta variable es muy riesgoso, aunque dependiendo del estudio que se decida hacer podria no afectar tanto. Para este tipo de casos recomendaria imputar con cuidado con tecnicas como One Hot encoder.</p>
 </section>
 <section id="ingresos">
 <h3>ingresos<a class="headerlink" href="#ingresos" title="Link to this heading">#</a></h3>
@@ -1134,6 +1135,10 @@ memory usage: 93.9+ KB
 <section id="puntuacion-de-credito">
 <h3>puntuacion de credito<a class="headerlink" href="#puntuacion-de-credito" title="Link to this heading">#</a></h3>
 <p>Esta variable tiene un porentaje alto de valores faltantes, siendo un 50% Nan. Aqui se podria creer que muchas personas tal vez tienen un puntaje 0 de credito y esto fue tomado como Nan, por lo que imputar podria ser muy riesgoso.</p>
+</section>
+<section id="segmento">
+<h3>Segmento<a class="headerlink" href="#segmento" title="Link to this heading">#</a></h3>
+<p>Sin tener mucha claridad de la variable y suponiendo que hace refrencia a algun nivel social, se recomienda imputar con One Hot encoder puesto que entraria en la categoria de MAR</p>
 </section>
 </section>
 <section id="tabla-resumen">
@@ -1160,7 +1165,7 @@ memory usage: 93.9+ KB
 <tr class="row-even"><td><p>Nivel educativo</p></td>
 <td><p>10%</p></td>
 <td><p>MAR</p></td>
-<td><p>Moda</p></td>
+<td><p>One Hot encoder</p></td>
 </tr>
 <tr class="row-odd"><td><p>edad</p></td>
 <td><p>3%</p></td>
@@ -1175,7 +1180,7 @@ memory usage: 93.9+ KB
 <tr class="row-odd"><td><p>estado civil</p></td>
 <td><p>35%</p></td>
 <td><p>MNAR</p></td>
-<td><p>Moda</p></td>
+<td><p>One Hot encoder</p></td>
 </tr>
 <tr class="row-even"><td><p>ingresos</p></td>
 <td><p>12%</p></td>
@@ -1200,7 +1205,7 @@ memory usage: 93.9+ KB
 <tr class="row-even"><td><p>segmento</p></td>
 <td><p>20%</p></td>
 <td><p>MAR</p></td>
-<td><p>Moda</p></td>
+<td><p>One Hot encoder</p></td>
 </tr>
 </tbody>
 </table>
@@ -1567,9 +1572,7 @@ Valores nulos en ciudad antes: 50, después: 0
 <span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;nivel_educativo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hot_deck_group</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;nivel_educativo&#39;</span><span class="p">,</span> <span class="s1">&#39;ciudad&#39;</span><span class="p">)</span>
 <span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;estado_civil&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hot_deck_group</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;estado_civil&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">)</span>
 <span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;segmento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hot_deck_group</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;segmento&#39;</span><span class="p">,</span> <span class="s1">&#39;ingresos&#39;</span><span class="p">)</span>
-<span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;nivel_educativo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hot_deck_group</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;nivel_educativo&#39;</span><span class="p">,</span> <span class="s1">&#39;ciudad&#39;</span><span class="p">)</span>
-<span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;estado_civil&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hot_deck_group</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;estado_civil&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">)</span>
-<span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;segmento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hot_deck_group</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;segmento&#39;</span><span class="p">,</span> <span class="s1">&#39;ingresos&#39;</span><span class="p">)</span>
+
 
 <span class="n">Na_nivel_antes</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;nivel_educativo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">Na_estado_antes</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;estado_civil&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -1824,8 +1827,8 @@ Cramér&#39;s V = 0.000 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: gr
 </tr>
 <tr class="row-even"><td><p>Nivel educativo</p></td>
 <td><p>10%</p></td>
-<td><p>MNAR</p></td>
-<td><p>Moda</p></td>
+<td><p>MAR</p></td>
+<td><p>One Hot encoder</p></td>
 <td><p>Chi2 = 0.045, gl = 3, p = 0.9975 →  No se rechaza H0 (distribuciones iguales)</p></td>
 </tr>
 <tr class="row-odd"><td><p>edad</p></td>
@@ -1843,7 +1846,7 @@ Cramér&#39;s V = 0.000 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: gr
 <tr class="row-odd"><td><p>estado civil</p></td>
 <td><p>35%</p></td>
 <td><p>MNAR</p></td>
-<td><p>Moda</p></td>
+<td><p>One Hot encoder</p></td>
 <td><p>Chi2 = 0.319, gl = 3, p = 0.9565 →  No se rechaza H0 (distribuciones iguales)</p></td>
 </tr>
 <tr class="row-even"><td><p>ingresos</p></td>
@@ -1861,7 +1864,7 @@ Cramér&#39;s V = 0.000 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: gr
 <tr class="row-even"><td><p>segmento</p></td>
 <td><p>20%</p></td>
 <td><p>MAR</p></td>
-<td><p>Moda</p></td>
+<td><p>One Hot encoder</p></td>
 <td><p>Chi2 = 0.000, gl = 2, p = 1.0000 →  No se rechaza H0 (distribuciones iguales)</p></td>
 </tr>
 </tbody>
@@ -1933,6 +1936,7 @@ Cramér&#39;s V = 0.000 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: gr
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ingresos">ingresos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gasto-mensual">gasto mensual</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puntuacion-de-credito">puntuacion de credito</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segmento">Segmento</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-resumen">Tabla resumén</a></li>
