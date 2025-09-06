@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Clasificacion de datos faltantes &#8212; My sample book</title>
+    <title>Taller de imputación python &#8212; My sample book</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Clasificacion de datos faltantes
+                    Taller de imputación python
                 </a>
             </li>
         </ul>
@@ -363,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Clasificacion de datos faltantes</h1>
+    <h1>Taller de imputación python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -373,26 +373,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Clasificacion de datos faltantes</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mcar">MCAR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mar">MAR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnar">MNAR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-de-datos-faltantes">Clasificacion de datos faltantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mcar">MCAR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mar">MAR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mnar">MNAR</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#disucion-sobre-imputabilidad">Disución sobre  imputabilidad</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sexo">Sexo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ciudad">Ciudad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-educativo">nivel educativo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edad">edad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#altura">altura</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-civil">estado civil</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ingresos">ingresos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gasto-mensual">gasto mensual</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puntuacion-de-credito">puntuacion de credito</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disucion-sobre-imputabilidad">Disución sobre  imputabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sexo">Sexo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ciudad">Ciudad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-educativo">nivel educativo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edad">edad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#altura">altura</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-civil">estado civil</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ingresos">ingresos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gasto-mensual">gasto mensual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puntuacion-de-credito">puntuacion de credito</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -403,7 +402,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="taller-de-imputacion-python">
+<h1>Taller de imputación python<a class="headerlink" href="#taller-de-imputacion-python" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1034,9 +1035,9 @@ memory usage: 93.9+ KB
 </div>
 </div>
 <section id="clasificacion-de-datos-faltantes">
-<h1>Clasificacion de datos faltantes<a class="headerlink" href="#clasificacion-de-datos-faltantes" title="Link to this heading">#</a></h1>
+<h2>Clasificacion de datos faltantes<a class="headerlink" href="#clasificacion-de-datos-faltantes" title="Link to this heading">#</a></h2>
 <section id="mcar">
-<h2>MCAR<a class="headerlink" href="#mcar" title="Link to this heading">#</a></h2>
+<h3>MCAR<a class="headerlink" href="#mcar" title="Link to this heading">#</a></h3>
 <p>Considero que la siguienes variables tienen valores faltantes completamente al azar:</p>
 <ul class="simple">
 <li><p>sexo</p></li>
@@ -1048,7 +1049,7 @@ memory usage: 93.9+ KB
 <p>En estos casos considero que es información que suele digitarse mal o la gente olvida responder. Sexo particularmente cae en esta categoria debido a que tiene muy pocos valores faltantes, pues de lo contrario se podria hacer otro analisis. En el caso de variables como nivel educativo mucha gente a veces no encuentra una respuesta acorde al su nivel.</p>
 </section>
 <section id="mar">
-<h2>MAR<a class="headerlink" href="#mar" title="Link to this heading">#</a></h2>
+<h3>MAR<a class="headerlink" href="#mar" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>gastos mensual</p></li>
 <li><p>demanda</p></li>
@@ -1057,7 +1058,7 @@ memory usage: 93.9+ KB
 <p>Considerando que segmento se puede referir algun tipo de nivel social de la persona, estas 3 varaibles podrian considerarse fuertemente relacionadas al ingreso de las personas.</p>
 </section>
 <section id="mnar">
-<h2>MNAR<a class="headerlink" href="#mnar" title="Link to this heading">#</a></h2>
+<h3>MNAR<a class="headerlink" href="#mnar" title="Link to this heading">#</a></h3>
 <p>Considero que las siguiente varaibles pueden tener datos faltantes debido la sensibilidad del dato</p>
 <ul class="simple">
 <li><p>estado_civil</p></li>
@@ -1069,41 +1070,41 @@ memory usage: 93.9+ KB
 </section>
 </section>
 <section id="disucion-sobre-imputabilidad">
-<h1>Disución sobre  imputabilidad<a class="headerlink" href="#disucion-sobre-imputabilidad" title="Link to this heading">#</a></h1>
+<h2>Disución sobre  imputabilidad<a class="headerlink" href="#disucion-sobre-imputabilidad" title="Link to this heading">#</a></h2>
 <section id="sexo">
-<h2>Sexo<a class="headerlink" href="#sexo" title="Link to this heading">#</a></h2>
+<h3>Sexo<a class="headerlink" href="#sexo" title="Link to this heading">#</a></h3>
 <p>Considero que si se puede  imputar esta variable pues solo hay un 2% de datos faltantes. Imputar los datos faltantes de esta variable no supondria mucho riesgo, pues son muy pocos los registros sin datos. Se podria imputar por moda, puesto que es una variable categorica.</p>
 </section>
 <section id="ciudad">
-<h2>Ciudad<a class="headerlink" href="#ciudad" title="Link to this heading">#</a></h2>
+<h3>Ciudad<a class="headerlink" href="#ciudad" title="Link to this heading">#</a></h3>
 <p>Considerando que tiene un 5% de valores faltante aun se podria impuar por moda, aun considero que no existe riesgo en realizar impuación pues un 5% de datos faltantes aun es considerado optimo para imputar.</p>
 </section>
 <section id="nivel-educativo">
-<h2>nivel educativo<a class="headerlink" href="#nivel-educativo" title="Link to this heading">#</a></h2>
+<h3>nivel educativo<a class="headerlink" href="#nivel-educativo" title="Link to this heading">#</a></h3>
 <p>En este caso tenemos un 10% de valores faltantes y aun es posible imputar por moda sin mucho riesgo</p>
 </section>
 <section id="edad">
-<h2>edad<a class="headerlink" href="#edad" title="Link to this heading">#</a></h2>
+<h3>edad<a class="headerlink" href="#edad" title="Link to this heading">#</a></h3>
 <p>La variable solo cuenta con un 3% de valores faltantes, en estee caso se puede revisar la distribución de los datos  decidir si imputar o media o mediana. No habria demasiado riesgo al imputar pusto que es un porcentaje bajo</p>
 </section>
 <section id="altura">
-<h2>altura<a class="headerlink" href="#altura" title="Link to this heading">#</a></h2>
+<h3>altura<a class="headerlink" href="#altura" title="Link to this heading">#</a></h3>
 <p>Con un 8% de datos faltantes hay que tener cudado a la hora de imputar. Al tratarse de una variable numerica se pueden usar metodos de imputación simple, como mediana o media.</p>
 </section>
 <section id="estado-civil">
-<h2>estado civil<a class="headerlink" href="#estado-civil" title="Link to this heading">#</a></h2>
+<h3>estado civil<a class="headerlink" href="#estado-civil" title="Link to this heading">#</a></h3>
 <p>Es la segunda variable con más datos faltantes, alcanzando un 35%, imputar en el caso de esta variable es muy riesgoso, aunque dependiendo del estudio que se decida hacer podria no afectaar tanto. Para este tipo de casos recomendaria no imputar pues es un dato sensible.</p>
 </section>
 <section id="ingresos">
-<h2>ingresos<a class="headerlink" href="#ingresos" title="Link to this heading">#</a></h2>
+<h3>ingresos<a class="headerlink" href="#ingresos" title="Link to this heading">#</a></h3>
 <p>Si se jsutifica imputar esta variable, pues aunque haya un 12% de valores faltantes el origen de estos nos permite intuir que se pueden imputar mediante regresión y obtener un valor aproximadamente real.</p>
 </section>
 <section id="gasto-mensual">
-<h2>gasto mensual<a class="headerlink" href="#gasto-mensual" title="Link to this heading">#</a></h2>
+<h3>gasto mensual<a class="headerlink" href="#gasto-mensual" title="Link to this heading">#</a></h3>
 <p>En gasto mensual un cuarto de los datos son Nan deibdo a que esta podria ser una varaible sensible para el usuario es riesgoso imputar con metodos sencillos y se necsita realizar metodos más avanzados para hacer un buen analisis de como imputar la variable</p>
 </section>
 <section id="puntuacion-de-credito">
-<h2>puntuacion de credito<a class="headerlink" href="#puntuacion-de-credito" title="Link to this heading">#</a></h2>
+<h3>puntuacion de credito<a class="headerlink" href="#puntuacion-de-credito" title="Link to this heading">#</a></h3>
 <p>Esta variable tiene un porentaje alto de valores faltantes, siendo un 50% Nan. Aqui se podria creer que muchas personas tal vez tienen un puntaje 0 de credito y esto fue tomado como Nan, por lo que imputar podria ser muy riesgoso.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1683,6 +1684,7 @@ Cramér&#39;s V = 0.000 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: gr
 <p>Conclusiones finales</p>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1730,26 +1732,25 @@ Cramér&#39;s V = 0.000 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: gr
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Clasificacion de datos faltantes</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mcar">MCAR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mar">MAR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnar">MNAR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-de-datos-faltantes">Clasificacion de datos faltantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mcar">MCAR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mar">MAR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mnar">MNAR</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#disucion-sobre-imputabilidad">Disución sobre  imputabilidad</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sexo">Sexo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ciudad">Ciudad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-educativo">nivel educativo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edad">edad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#altura">altura</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-civil">estado civil</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ingresos">ingresos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gasto-mensual">gasto mensual</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puntuacion-de-credito">puntuacion de credito</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disucion-sobre-imputabilidad">Disución sobre  imputabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sexo">Sexo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ciudad">Ciudad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-educativo">nivel educativo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edad">edad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#altura">altura</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-civil">estado civil</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ingresos">ingresos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gasto-mensual">gasto mensual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puntuacion-de-credito">puntuacion de credito</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
