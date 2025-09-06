@@ -1017,7 +1017,12 @@ memory usage: 93.9+ KB
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de barras del porcentaje de nulos por variable</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -1029,11 +1034,17 @@ memory usage: 93.9+ KB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/244a1b73a0229ad9a056465c6a9e7e7845f1011b286170b3f14863fc2e1a01b2.png" src="_images/244a1b73a0229ad9a056465c6a9e7e7845f1011b286170b3f14863fc2e1a01b2.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mapa de calor de valores faltantes</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -1045,6 +1056,7 @@ memory usage: 93.9+ KB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/34d64a265785bfda9f708738731ce6038218c119439a3d7171f8b7085ec45b1f.png" src="_images/34d64a265785bfda9f708738731ce6038218c119439a3d7171f8b7085ec45b1f.png" />
 </div>
@@ -1340,7 +1352,31 @@ Nulos en &#39;gasto_mensual&#39; DESPUÉS de imputar: 0 (0.00%)
 </section>
 <section id="visualizacion-de-los-resultados">
 <h3>Visualización de los resultados<a class="headerlink" href="#visualizacion-de-los-resultados" title="Link to this heading">#</a></h3>
-<div class="cell tag_remove-input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráficos comparativos antes y después de imputar</span>
+<span class="c1"># Numéricas: histogramas y boxplots</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;edad&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Original </span><span class="si">{</span><span class="s1">&#39;edad&#39;</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;edad&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mediana </span><span class="si">{</span><span class="s1">&#39;edad&#39;</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;altura_cm&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Original </span><span class="si">{</span><span class="s1">&#39;altura_cm&#39;</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;altura_cm&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Media </span><span class="si">{</span><span class="s1">&#39;altura_cm&#39;</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Media altura_cm&#39;)
 </pre></div>
@@ -1377,7 +1413,12 @@ Nulos en &#39;gasto_mensual&#39; DESPUÉS de imputar: 0 (0.00%)
 <img alt="_images/9840cc6e55a44dca157144bca03419c409aefb068e417041df34c7a6a4201380.png" src="_images/9840cc6e55a44dca157144bca03419c409aefb068e417041df34c7a6a4201380.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram_bin_edges</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;gasto_mensual&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;gasto_mensual&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]),</span> <span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
 
@@ -1395,6 +1436,7 @@ Nulos en &#39;gasto_mensual&#39; DESPUÉS de imputar: 0 (0.00%)
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/6ffab19f245ce1fc46b1b7dc7ca57a33ce04dc09fbdbbbce0a46053ba6a686f1.png" src="_images/6ffab19f245ce1fc46b1b7dc7ca57a33ce04dc09fbdbbbce0a46053ba6a686f1.png" />
 </div>
@@ -1551,7 +1593,12 @@ Valores nulos en segmento antes: 200, después: 200
 </div>
 <section id="visulizacion-y-verificacion-de-la-imputacion">
 <h3>Visulización y verificación de la imputación<a class="headerlink" href="#visulizacion-y-verificacion-de-la-imputacion" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sexo&quot;</span><span class="p">,</span> <span class="s2">&quot;ciudad&quot;</span><span class="p">]</span>
 
@@ -1590,6 +1637,7 @@ Valores nulos en segmento antes: 200, después: 200
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/77f3bc208ff4b134c38f98f03bac58ab554f1e7dec54262b2dc2d45c61615264.png" src="_images/77f3bc208ff4b134c38f98f03bac58ab554f1e7dec54262b2dc2d45c61615264.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== sexo ===
@@ -1631,7 +1679,12 @@ Chi2 = 2.485, gl = 4, p = 0.6474 →  No se rechaza H0 (distribuciones iguales)
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cramers_v</span><span class="p">(</span><span class="n">ct</span><span class="p">):</span>
     <span class="n">chi2</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">correction</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1678,6 +1731,7 @@ Chi2 = 2.485, gl = 4, p = 0.6474 →  No se rechaza H0 (distribuciones iguales)
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/1f26ba93e3122ef475c729df665b9fa51c5539a5df9ec70b3c9af3e1be02a570.png" src="_images/1f26ba93e3122ef475c729df665b9fa51c5539a5df9ec70b3c9af3e1be02a570.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== nivel_educativo ===
