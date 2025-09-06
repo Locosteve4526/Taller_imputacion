@@ -1655,7 +1655,7 @@ Valores nulos en ciudad antes: 50, después: 0
 
 <span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;nivel_educativo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hot_deck_group</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;nivel_educativo&#39;</span><span class="p">,</span> <span class="s1">&#39;ciudad&#39;</span><span class="p">)</span>
 <span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;estado_civil&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hot_deck_group</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;estado_civil&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">)</span>
-<span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;segmento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hot_deck_group</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;segmento&#39;</span><span class="p">,</span> <span class="s1">&#39;ingresos&#39;</span><span class="p">)</span>
+<span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;segmento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hot_deck_group</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;segmento&#39;</span><span class="p">,</span> <span class="s1">&#39;ciudad&#39;</span><span class="p">)</span>
 
 
 <span class="n">Na_nivel_antes</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;nivel_educativo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -1664,6 +1664,7 @@ Valores nulos en ciudad antes: 50, después: 0
 <span class="n">Na_nivel_despues</span> <span class="o">=</span> <span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;nivel_educativo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">Na_estado_despues</span> <span class="o">=</span> <span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;estado_civil&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">Na_segmento_despues</span> <span class="o">=</span> <span class="n">df_imputed</span><span class="p">[</span><span class="s1">&#39;segmento&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valores nulos en nivel_educativo antes: </span><span class="si">{</span><span class="n">Na_nivel_antes</span><span class="si">}</span><span class="s1">, después: </span><span class="si">{</span><span class="n">Na_nivel_despues</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valores nulos en estado_civil antes: </span><span class="si">{</span><span class="n">Na_estado_antes</span><span class="si">}</span><span class="s1">, después: </span><span class="si">{</span><span class="n">Na_estado_despues</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valores nulos en segmento antes: </span><span class="si">{</span><span class="n">Na_segmento_antes</span><span class="si">}</span><span class="s1">, después: </span><span class="si">{</span><span class="n">Na_segmento_despues</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -1673,7 +1674,7 @@ Valores nulos en ciudad antes: 50, después: 0
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valores nulos en nivel_educativo antes: 100, después: 2
 Valores nulos en estado_civil antes: 350, después: 12
-Valores nulos en segmento antes: 200, después: 200
+Valores nulos en segmento antes: 200, después: 10
 </pre></div>
 </div>
 </div>
@@ -1862,7 +1863,7 @@ Cramér&#39;s V = 0.014 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: gr
 ------------------------------------------------------------
 </pre></div>
 </div>
-<img alt="_images/fc740ec4b532c45c84607a6839d129546b2541b88794619d05d87a040c559911.png" src="_images/fc740ec4b532c45c84607a6839d129546b2541b88794619d05d87a040c559911.png" />
+<img alt="_images/0fa9e74a74cf03984959883cbc62cf3f794bfe01576ba581af1e548360ee3f55.png" src="_images/0fa9e74a74cf03984959883cbc62cf3f794bfe01576ba581af1e548360ee3f55.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== segmento ===
 Proporciones antes:
  segmento
@@ -1872,12 +1873,12 @@ C    0.186
 Name: count, dtype: float64
 Proporciones después:
  segmento
-A    0.242
-B    0.571
-C    0.186
+A    0.235
+B    0.573
+C    0.192
 Name: count, dtype: float64
-Chi2 = 0.000, gl = 2, p = 1.0000 →  No se rechaza H0 (distribuciones iguales)
-Cramér&#39;s V = 0.000 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: grande)
+Chi2 = 0.172, gl = 2, p = 0.9178 →  No se rechaza H0 (distribuciones iguales)
+Cramér&#39;s V = 0.010 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: grande)
 ------------------------------------------------------------
 </pre></div>
 </div>
