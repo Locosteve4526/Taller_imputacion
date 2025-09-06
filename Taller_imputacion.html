@@ -1884,6 +1884,109 @@ Cramér&#39;s V = 0.010 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: gr
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular número y porcentaje de valores faltantes por variable</span>
+<span class="n">missing_count</span> <span class="o">=</span> <span class="n">df_imputed</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">missing_percent</span> <span class="o">=</span> <span class="p">(</span><span class="n">missing_count</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_imputed</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="c1"># Mostrar tabla resumen</span>
+<span class="n">missing_summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Valores faltantes&#39;</span><span class="p">:</span> <span class="n">missing_count</span><span class="p">,</span>
+    <span class="s1">&#39;Porcentaje (%)&#39;</span><span class="p">:</span> <span class="n">missing_percent</span>
+<span class="p">})</span>
+
+<span class="n">missing_summary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Valores faltantes</th>
+      <th>Porcentaje (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>fecha</th>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>sexo</th>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>ciudad</th>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>nivel_educativo</th>
+      <td>2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>segmento</th>
+      <td>10</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>estado_civil</th>
+      <td>12</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <th>edad</th>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>altura_cm</th>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>ingresos</th>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>gasto_mensual</th>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>puntuacion_credito</th>
+      <td>500</td>
+      <td>50.0</td>
+    </tr>
+    <tr>
+      <th>demanda</th>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
 </section>
 <section id="conclusiones-finales">
@@ -1899,61 +2002,61 @@ Cramér&#39;s V = 0.010 (≈0: muy similar; 0.1: pequeño; 0.3: mediano; 0.5: gr
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Sexo</p></td>
-<td><p>2%</p></td>
+<td><p>0</p></td>
 <td><p>MCAR</p></td>
 <td><p>Moda</p></td>
 <td><p>Chi2 = 0.141, gl = 1, p = 0.7074 →  No se rechaza H0 (distribuciones iguales)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ciudad</p></td>
-<td><p>5%</p></td>
+<td><p>0</p></td>
 <td><p>MCAR</p></td>
 <td><p>Moda</p></td>
 <td><p>Chi2 = 2.485, gl = 4, p = 0.6474 →  No se rechaza H0 (distribuciones iguales)</p></td>
 </tr>
 <tr class="row-even"><td><p>Nivel educativo</p></td>
-<td><p>10%</p></td>
+<td><p>0.2%</p></td>
 <td><p>MAR</p></td>
 <td><p>One Hot encoder</p></td>
 <td><p>Chi2 = 0.045, gl = 3, p = 0.9975 →  No se rechaza H0 (distribuciones iguales)</p></td>
 </tr>
 <tr class="row-odd"><td><p>edad</p></td>
-<td><p>3%</p></td>
+<td><p>0</p></td>
 <td><p>MCAR</p></td>
 <td><p>Mediana</p></td>
 <td><p>Estadístico U: 485075.000 p-valor: 0.99529 No se rechaza H0: Las distribuciones son iguales.</p></td>
 </tr>
 <tr class="row-even"><td><p>altura</p></td>
-<td><p>8%</p></td>
+<td><p>0</p></td>
 <td><p>MCAR</p></td>
 <td><p>Media</p></td>
 <td><p>Estadístico U: 459840.000 p-valor: 0.98951 No se rechaza H0: Las distribuciones son iguales.</p></td>
 </tr>
 <tr class="row-odd"><td><p>estado civil</p></td>
-<td><p>35%</p></td>
+<td><p>1.2%</p></td>
 <td><p>MNAR</p></td>
 <td><p>One Hot encoder</p></td>
 <td><p>Chi2 = 0.319, gl = 3, p = 0.9565 →  No se rechaza H0 (distribuciones iguales)</p></td>
 </tr>
 <tr class="row-even"><td><p>demanda</p></td>
-<td><p>15%</p></td>
+<td><p>0</p></td>
 <td><p>MAR</p></td>
 <td><p>Regresion</p></td>
-<td><p></p></td>
+<td><p>Estadístico U: 424633.000 p-valor: 0.97447 No se rechaza H0: Las distribuciones son iguales.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ingresos</p></td>
-<td><p>12%</p></td>
+<td><p>0</p></td>
 <td><p>MNAR</p></td>
 <td><p>Regresion</p></td>
 <td><p>Estadístico U: 444364.000 p-valor: 0.71025 No se rechaza H0: Las distribuciones son iguales.</p></td>
 </tr>
 <tr class="row-even"><td><p>gasto mensual</p></td>
-<td><p>25%</p></td>
+<td><p>0</p></td>
 <td><p>MAR</p></td>
 <td><p>Regresion</p></td>
 <td><p>Estadístico U: 384684.000 p-valor: 0.35462 No se rechaza H0: Las distribuciones son iguales.</p></td>
 </tr>
 <tr class="row-odd"><td><p>segmento</p></td>
-<td><p>20%</p></td>
+<td><p>1%</p></td>
 <td><p>MAR</p></td>
 <td><p>One Hot encoder</p></td>
 <td><p>Chi2 = 0.000, gl = 2, p = 1.0000 →  No se rechaza H0 (distribuciones iguales)</p></td>
